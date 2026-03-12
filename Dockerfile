@@ -11,6 +11,6 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . .
 
 RUN useradd -m appuser && chown -R appuser:appuser /app
-USER appuser
+#USER appuser
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
