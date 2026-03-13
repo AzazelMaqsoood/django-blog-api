@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer, PostDetailSerializer
