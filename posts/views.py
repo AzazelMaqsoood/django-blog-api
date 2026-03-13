@@ -6,7 +6,7 @@ from .permissions import IsAuthorOrReadOnly
 from rest_framework import permissions
 
 class PostViewSet(ModelViewSet):
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().prefetch_related('comment_set')
     serializer_class = PostSerializer
 
     filterset_fields = ['title', 'created_at']

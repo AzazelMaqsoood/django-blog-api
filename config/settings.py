@@ -41,11 +41,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'rest_framework_simplejwt',
+    'debug_toolbar',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -136,3 +139,8 @@ REST_FRAMEWORK = {
     'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
