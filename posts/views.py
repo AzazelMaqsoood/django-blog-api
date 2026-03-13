@@ -2,6 +2,8 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer, PostDetailSerializer
+from .permissions import IsAuthorOrReadOnly
+from rest_framework import permissions
 
 class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()
@@ -17,6 +19,8 @@ class PostViewSet(ModelViewSet):
     
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsAuthorOrReadOnly]
 
 
 class CommentViewSet(ModelViewSet):
