@@ -7,6 +7,9 @@ class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
+    filterset_fields = ['title', 'created_at']
+    search_fields = ['title', 'content']
+
     def get_serializer_class(self):
         if self.action == 'retrieve':
             return PostDetailSerializer
