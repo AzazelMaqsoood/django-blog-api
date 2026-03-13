@@ -3,6 +3,7 @@ from django.dispatch import receiver
 from .models import Post
 from .tasks import send_post_notification
 
+
 @receiver(post_save, sender=Post)
 def trigger_notification(sender, instance, created, **kwargs):
     """

@@ -1,12 +1,14 @@
 from celery import shared_task
 import time
 
+
 @shared_task
 def debug_task():
     print("🔄 Задача запущена в фоне!")
     time.sleep(2)  # Имитация долгой работы
     print("✅ Задача выполнена!")
     return "Success"
+
 
 @shared_task
 def send_post_notification(post_id, author_username):
@@ -19,4 +21,4 @@ def send_post_notification(post_id, author_username):
     # send_mail(subject, message, from_email, [recipient_list])
     time.sleep(1)  # Имитация работы почтового сервера
     print(f"✅ Уведомление для поста #{post_id} отправлено!")
-    return f"Notification sent for post {post_id}"    
+    return f"Notification sent for post {post_id}"
