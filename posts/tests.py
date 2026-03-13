@@ -1,6 +1,7 @@
 from django.test import TestCase
 from .models import Post
 
+
 class PostModelTest(TestCase):
     def test_post_creation(self):
         """Проверяет, что пост создается корректно"""
