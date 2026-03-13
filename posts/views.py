@@ -14,6 +14,9 @@ class PostViewSet(ModelViewSet):
         if self.action == 'retrieve':
             return PostDetailSerializer
         return PostSerializer
+    
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 class CommentViewSet(ModelViewSet):
